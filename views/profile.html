@@ -1,0 +1,78 @@
+<!--
+    Author: Chunhai Yang
+    Date: 5/12/2020
+    This profile page contains some personal information : email, state and seeking gender
+
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- fontawesome 5 -->
+    <script src="https://kit.fontawesome.com/d6ad110c86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title>My Dating Website</title>
+
+</head>
+<body>
+<div class="card border-light mb-3">
+    <div class="card-header"><a href="/328/dating" class="text-dark text-decoration-none">My Dating Website</a></div>
+</div><div class="card container">
+    <div class="card-body">
+        <h1>Profile</h1>
+        <hr>
+        <form id="profile" action="#" method="post" class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="state" class="font-weight-bold">State</label>
+                    <select class="form-control" id="state" name="state">
+                        <option value="---Please Select---"> ---Please Select---</option>
+
+                        <option value="OR"> OR</option>
+                        <option value="CA"> PA</option>
+                        <option value="WA"> WA</option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="font-weight-bold">Seeking</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="sex" id="Male" value="Male">
+                        <label for="Male" class="form-check-label"> Male&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input class="form-check-input" type="radio" name="sex" id="Female" value="Female">
+                        <label for="Female" class="form-check-label"> Female&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="biography" class="font-weight-bold">Biography</label>
+                    <textarea class="form-control" rows="5" id="biography" name="biography">Place holder text</textarea>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="float-right p-2">
+            <button type="submit" form="profile" class="btn btn-primary">Next ></button>
+        </div>
+
+    </div>
+</div>
