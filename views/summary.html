@@ -41,9 +41,13 @@
                         <li class="list-group-item">Email: {{ @SESSION['email']}}</li>
                         <li class="list-group-item">State: {{ @SESSION['state']}}</li>
                         <li class="list-group-item">Seeking: {{ @SESSION['seeking']}}</li>
-                             <check if="{{ isset(@SESSION['interests']) }}">
-                                 <li class="list-group-item">  Interests:  {{ implode(@SESSION['interests'], ", ") }}</li>
-                        </check>
+                             <check if="{{ isset(@SESSION['outdoors']) }}">
+                                 <li class="list-group-item">  Outdoors:  {{ implode(@SESSION['outdoors'], ", ") }}</li>
+                             </check>
+                             <check if="{{ isset(@SESSION['indoors']) }}">
+                                 <li class="list-group-item">  Indoors:  {{ implode(@SESSION['indoors'], ", ") }}</li>
+                             </check>
+
                     </ul>
                 </div>
             </div>

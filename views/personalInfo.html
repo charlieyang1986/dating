@@ -17,10 +17,10 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <include href="includes/header.htm"></include>
 
-    <!-- External CSS -->
-    <link href="/328/dating/styles/styles.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <div class="card border-light mb-3">
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label for="fName" class="font-weight-bold">First Name</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="fName" name="fName" value="{{ @name }}">
+                        <input type="text" class="form-control" id="fName" name="fName" value="{{ @fName }}">
 
                         <div class="input-group-append">
                             <span class="input-group-text" id="basic-addon2"><i class="fas fa-address-card"></i></span>
@@ -51,7 +51,7 @@
 
                 <div class="form-group">
                     <label for="lName" class="font-weight-bold">Last Name</label>
-                    <input type="text" class="form-control" id="lName" name="lName">
+                    <input type="text" class="form-control" id="lName" name="lName" value="{{ @lName }}">
                     <span class="err">
                                   <check if="{{ isset(@errors['name']) }}">
                                         {{ @errors['name'] }}
@@ -61,7 +61,7 @@
 
                 <div class="form-group">
                     <label for="age" class="font-weight-bold">Age</label>
-                    <input type="text" class="form-control" id="age" name="age">
+                    <input type="text" class="form-control" id="age" name="age" value="{{ @age }}">
                     <span class="err">
                                   <check if="{{ isset(@errors['age']) }}">
                                         {{ @errors['age'] }}
@@ -84,7 +84,7 @@
 
                 <div class="form-group">
                     <label for="phoneNumber" class="font-weight-bold">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="">
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="{{ @phoneNumber }}"placeholder="">
                     <span class="err">
                                   <check if="{{ isset(@errors['phoneNumber']) }}">
                                         {{ @errors['phoneNumber'] }}

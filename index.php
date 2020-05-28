@@ -1,4 +1,9 @@
 <?php
+/*
+ * Name: Chunhai Yang
+ * IT328
+ * dating app
+ */
 
 //Turn on error reporting
 ini_set('display_errors', 1);
@@ -44,7 +49,7 @@ $f3->route('GET|POST /personalInfo', function($f3) {
 
         if(!validAge($_POST['age'])){
              //set an error variable in the F3 hive
-            $f3->set('errors["age"]', "Please enter a number");
+            $f3->set('errors["age"]', "Please enter number between 18 and 118");
         }
 
         if(!validPhone($_POST['phoneNumber'])){
@@ -53,15 +58,6 @@ $f3->route('GET|POST /personalInfo', function($f3) {
         }
 
 
-
-
-
-
-//        if(!isset($_POST['options'])){
-//
-//            // set an error variable in the F3 hive
-//            $f3->set('errors["options"]',"Please select at least one");
-//        }
 
         if(empty($f3->get('errors'))){
 
@@ -85,10 +81,6 @@ $f3->route('GET|POST /personalInfo', function($f3) {
     $f3->set('phoneNumber', $_POST['phoneNumber']);
 
 
-    //$f3->set('selectedOption', $_POST['option']);
-    //$f3->set('options', $options);
-
-    //$f3->set('genders', $genders);
     $view = new Template();
     echo $view->render('views/personalInfo.html');
 
@@ -96,7 +88,6 @@ $f3->route('GET|POST /personalInfo', function($f3) {
 });
 
 $f3->route('GET|POST /profile', function($f3) {
-
 
 
     //If the form has been submitted
@@ -117,7 +108,6 @@ $f3->route('GET|POST /profile', function($f3) {
             $f3->reroute('interests');
         }
 
-
     }
 
     $f3->set('email', $_POST['email']);
@@ -131,21 +121,36 @@ $f3->route('GET|POST /profile', function($f3) {
 
 $f3->route('GET|POST /interests', function($f3) {
 
+    $indoors = getIndoor();
+    $outdoors = getOutdoor();
+
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(!validIndoor($_POST['email'])){
-            $f3->set('errors["email"]', "Please enter a valid email");
-        }{
+
+        if(isset($_POST['outdoors']) && !validOutdoor($_POST['outdoors'])){
+            $f3->set('errors["outdoors"]', "Invalid option");
+        }
+
+        if(isset($_POST['indoors']) && !validIndoor($_POST['indoors'])){
+            $f3->set('errors["indoors"]', "Invalid option");
+        }
+
+
+        if(empty($f3->get('errors'))) {
+
+            //Store the data in the session array
+            $_SESSION['outdoors'] = $_POST['outdoors'];
+            $_SESSION['indoors'] = $_POST['indoors'];
+            //Redirect to summary page
+            $f3->reroute('summary');
 
         }
 
-        //Store the data in the session array
-         $_SESSION['interests'] = $_POST['interests'];
-
-        //Redirect to summary page
-        $f3->reroute('summary');
     }
-    $f3->set('interests', $interests);
+    $f3->set('outdoors', $outdoors);
+    $f3->set('indoors', $indoors);
+
+
     $view = new Template();
     echo $view->render('views/interests.html');
 });

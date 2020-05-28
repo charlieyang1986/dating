@@ -31,7 +31,7 @@
     <div class="card-body">
         <h1>Interests</h1>
         <hr>
-        <form id="interests" action="#" method="post" class="row">
+        <form id="interests" name="interests" action="#" method="post" class="row">
             <div class="container">
                 <label class="font-weight-bold">In-door Interests</label>
 
@@ -41,14 +41,17 @@
                             <label><input type="checkbox"
                                           name="indoors[]"
                                           value="{{ @indoor }}"
-                                <check if="{{ @indoor == @selectedIndoor}}" >
-                                    checked="checked"
-                                </check>
 
                                 > {{ @indoor }}
 
                                 </input></label><br>
                         </repeat>
+                        <span class="err">
+                    <check if="{{ isset(@errors['indoors']) }}">
+                        {{ @errors['indoors'] }}
+                    </check>
+
+                </span>
 
                         <!--
                         <div class="custom-control custom-checkbox">
@@ -118,6 +121,22 @@
 
                 <div class="row">
                     <div class="col-6 col-sm-3">
+                        <repeat group="{{ @outdoors }}" value="{{ @outdoor }}">
+                            <label><input type="checkbox"
+                                          name="outdoors[]"
+                                          value="{{ @outdoor }}"
+
+                                > {{ @outdoor }}
+
+                                </input></label><br>
+                        </repeat>
+                        <span class="err">
+                    <check if="{{ isset(@errors['outdoors']) }}">
+                        {{ @errors['outdoors'] }}
+                    </check>
+
+                </span>
+                        <!--
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="hiking"
                                    name="interests[]" value="hiking">
@@ -159,6 +178,7 @@
                             <label class="custom-control-label" for="climbing">climbing</label>
                         </div>
                     </div>
+                    -->
                 </div>
 
             </div>
