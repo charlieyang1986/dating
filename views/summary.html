@@ -34,18 +34,23 @@
 
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Name:  </li>
-                        <li class="list-group-item">Gender: </li>
-                        <li class="list-group-item">Age: </li>
-                        <li class="list-group-item">Phone: </li>
-                        <li class="list-group-item">Email: </li>
-                        <li class="list-group-item">State: </li>
-                        <li class="list-group-item">Seeking: </li>
-                        <li class="list-group-item">Interests:</li>
+                        <li class="list-group-item">Name: {{ @SESSION['fName']}} {{ @SESSION['lName']}}  </li>
+                        <li class="list-group-item">Gender: {{ @SESSION['gender']}}</li>
+                        <li class="list-group-item">Age: {{ @SESSION['age']}}</li>
+                        <li class="list-group-item">Phone: {{ @SESSION['phoneNumber']}}</li>
+                        <li class="list-group-item">Email: {{ @SESSION['email']}}</li>
+                        <li class="list-group-item">State: {{ @SESSION['state']}}</li>
+                        <li class="list-group-item">Seeking: {{ @SESSION['seeking']}}</li>
+                             <check if="{{ isset(@SESSION['interests']) }}">
+                                 <li class="list-group-item">  Interests:  {{ implode(@SESSION['interests'], ", ") }}</li>
+                        </check>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="text-center">
+        <button type="submit"  class="btn btn-primary">Contact Me!</button>
     </div>
 </div>
 </body>

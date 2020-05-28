@@ -25,8 +25,9 @@
 </head>
 <body>
 <div class="card border-light mb-3">
-    <div class="card-header"><a href="/328/dating" class="text-dark text-decoration-none">My Dating Website</a></div>
-</div><div class="card container">
+    <div class="card-header"><a class="text-dark text-decoration-none">My Dating Website</a></div>
+</div>
+<div class="card container">
     <div class="card-body">
         <h1>Interests</h1>
         <hr>
@@ -36,6 +37,20 @@
 
                 <div class="row">
                     <div class="col-6 col-sm-3">
+                        <repeat group="{{ @indoors }}" value="{{ @indoor }}">
+                            <label><input type="checkbox"
+                                          name="indoors[]"
+                                          value="{{ @indoor }}"
+                                <check if="{{ @indoor == @selectedIndoor}}" >
+                                    checked="checked"
+                                </check>
+
+                                > {{ @indoor }}
+
+                                </input></label><br>
+                        </repeat>
+
+                        <!--
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="tv"
                                    name="interests[]" value="tv">
@@ -58,9 +73,9 @@
                     </div>
                     <div class="col-6 col-sm-3">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="drawing"
-                                   name="interests[]" value="drawing">
-                            <label class="custom-control-label" for="drawing">drawing</label>
+                            <input type="checkbox" class="custom-control-input" id="boardGames"
+                                   name="interests[]" value="boardGames">
+                            <label class="custom-control-label" for="boardGames">board games</label>
                         </div>
                     </div>
                     <div class="col-6 col-sm-3">
@@ -79,17 +94,18 @@
                     </div>
                     <div class="col-6 col-sm-3">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="singing"
-                                   name="interests[]" value="singing">
-                            <label class="custom-control-label" for="singing">singing</label>
+                            <input type="checkbox" class="custom-control-input" id="playingCards"
+                                   name="interests[]" value="playingCards">
+                            <label class="custom-control-label" for="playingCards">playing cards</label>
                         </div>
                     </div>
                     <div class="col-6 col-sm-3">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="sleeping"
-                                   name="interests[]" value="sleeping">
-                            <label class="custom-control-label" for="sleeping">sleeping</label>
+                            <input type="checkbox" class="custom-control-input" id="videoGames"
+                                   name="interests[]" value="videoGames">
+                            <label class="custom-control-label" for="videoGames">video games</label>
                         </div>
+                        -->
                     </div>
                 </div>
 
